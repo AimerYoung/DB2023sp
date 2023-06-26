@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_alert %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block page_content %}
+
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is Search page for Project,enter your query below:</h2>
+</div>
+
+<div class="container">
+    <h3>Search conditions:</h3>
+
+    <form  method="POST" >
+        {{form.hidden_tag()}}
+        <div class="col-md-3">
+            {{ wtf.form_field(form.project_id) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.project_name) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.source) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.project_type) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.total_cost) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.start_year) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.end_year) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.submit) }}
+        </div>
+    </form>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Search Results</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Source</th>
+                                    <th>Type</rh>
+                                    <th>Total Cost</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for project in result %}
+                                <tr>
+                                    <td>{{ project.id }}</td>
+                                    <td>{{ project.name }}</td>
+                                    <td>{{ project.source }}</td>
+                                    <td>{{ project.type }}</td>
+                                    <td>{{ project.total_cost }}</td>
+                                    <td>{{ project.start_year }}</td>
+                                    <td>{{ project.end_year }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/search">Back to Search</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/">Back Home</a>
+    </div>
+</div>
+{% endblock %}

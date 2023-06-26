@@ -1,0 +1,38 @@
+    {% extends "bootstrap/base.html" %}
+
+    {% block title %}Teachersys{% endblock %}
+
+    {% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"> </span>
+                    <span class="icon-bar"> </span>
+                    <span class="icon-bar"> </span>
+                </button>
+                <a class="navbar-brand" href="/">Teachersys</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/add">Add</a></li>
+                    <li><a href="/delete">Delete</a></li>
+                    <li><a href="/alt">Alt</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/count">Count</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container">
+        {% block page_alert %}{% endblock %}
+        
+        {% block page_content %}{% endblock %}
+    </div>
+    {% endblock %}

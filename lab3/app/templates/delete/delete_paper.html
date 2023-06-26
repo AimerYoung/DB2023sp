@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_alert %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block page_content %}
+
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is Delete page for Paper,enter your query below:</h2>
+</div>
+
+<div class="container">
+    <h3>Delete By:</h3>
+
+    <form  method="POST" >
+        {{form.hidden_tag()}}
+        <div class="col-md-3">
+            {{ wtf.form_field(form.paper_id) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.paper_name) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.source) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.year) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.paper_type) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.paper_level) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.submit_search) }}
+        </div>
+        <div class="col-md-3">
+            {{ wtf.form_field(form.submit_delete) }}
+        </div>
+    </form>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Search Results</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Source</th>
+                                    <th>Year</th>
+                                    <th>Type</th>
+                                    <th>Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for paper in result %}
+                                <tr>
+                                    <td>{{ paper.id }}</td>
+                                    <td>{{ paper.name }}</td>
+                                    <td>{{ paper.source }}</td>
+                                    <td>{{ paper.year }}</td>
+                                    <td>{{ paper.type }}</td>
+                                    <td>{{ paper.level }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/delete">Back to Delete</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/">Back Home</a>
+    </div>
+</div>
+{% endblock %}

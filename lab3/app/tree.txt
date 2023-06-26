@@ -1,0 +1,55 @@
+文件夹 PATH 列表
+卷序列号为 6EF9-C858
+C:.
+|   add.py
+|   alt.py
+|   app.py
+|   create.py
+|   delete.py
+|   forms.py
+|   init_data.py
+|   models.py
+|   search.py
+|   tree.txt
+|   __init__.py
+|   
++---templates
+|   |   base.html
+|   |   index.html
+|   |   test.html
+|   |   user.html
+|   |   
+|   +---add
+|   |       add.html
+|   |       add_publish.html
+|   |       add_teach.html
+|   |       add_undertake.html
+|   |       
+|   +---alt
+|   |       alt.html
+|   |       
+|   +---delete
+|   |       delete.html
+|   |       
+|   \---search
+|           search.html
+|           search_course.html
+|           search_paper.html
+|           search_project.html
+|           search_publish.html
+|           search_teach.html
+|           search_teacher.html
+|           search_undertake.html
+|           search_union.html
+|           
+\---__pycache__
+        add.cpython-36.pyc
+        alt.cpython-36.pyc
+        app.cpython-36.pyc
+        delete.cpython-36.pyc
+        forms.cpython-36.pyc
+        models.cpython-36.pyc
+        routes.cpython-36.pyc
+        search.cpython-36.pyc
+        __init__.cpython-36.pyc
+        

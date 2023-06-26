@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_alert %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block page_content %}
+
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is Search page for Teacher,given certain id and period:</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Search Conditions:</h3>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ wtf.form_field(form.teacher_id) }}
+                </div>
+                <div class="form-group">
+                    {{ wtf.form_field(form.start_year) }}
+                </div>
+                <div class="form-group">
+                    {{ wtf.form_field(form.end_year) }}
+                </div>
+                <div class="form-group">
+                    {{ wtf.form_field(form.submit) }}
+                </div>
+                <div class="form-group">
+                    {{ wtf.form_field(form.download) }}
+                </div>
+            </form>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Publish Paper</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Paper ID</th>
+                                        <th>Paper Name</th>
+                                        <th>Source</th>
+                                        <th>Year</th>
+                                        <th>Type</th>
+                                        <th>Level</th>
+                                        <th>Ranking</th>
+                                        <th>Iscorrespondingauthor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for paper in publish_papers %}
+                                    <tr>
+                                        <td>{{ paper.id }}</td>
+                                        <td>{{ paper.name }}</td>
+                                        <td>{{ paper.source }}</td>
+                                        <td>{{ paper.year }}</td>
+                                        <td>{{ paper.type }}</td>
+                                        <td>{{ paper.level }}</td>
+                                        <td>{{ paper.ranking }}</td>
+                                        <td>{{ paper.iscorrespondingauthor }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Teach Course</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Course ID</th>
+                                        <th>Course Name</th>
+                                        <th>Hours</th>
+                                        <th>Semester</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for course in teach_courses %}
+                                    <tr>
+                                        <td>{{ course.course_id }}</td>
+                                        <td>{{ course.course_name }}</td>
+                                        <td>{{ course.hours }}</td>
+                                        <td>{{ course.semester }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Undertake Project</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Project ID</th>
+                                        <th>Project Name</th>
+                                        <th>Source</th>
+                                        <th>Time</th>
+                                        <th>Funds</th>
+                                        <th>Total Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for project in undertake_projects %}
+                                    <tr>
+                                        <td>{{ project.project_id }}</td>
+                                        <td>{{ project.project_name }}</td>
+                                        <td>{{ project.source }}</td>
+                                        <td>{{ project.start_year }}-{{ project.end_year }}</td>
+                                        <td>{{ project.expense }}</td>
+                                        <td>{{ project.total_cost }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row mt-3">
+                <div class="col-md-6 offset-md-6">
+                    <a class="btn btn-primary btn-block" href="/">Back Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

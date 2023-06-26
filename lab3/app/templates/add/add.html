@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is ADD page,select item below:</h2>
+</div>
+<div class="row mt-3">
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/add/publish">Publish Paper</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/add/undertake">Undertake Project</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/add/teach">Teach Class</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/add/teacher">Teacher</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/add/course">Course</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/">Back Home</a>
+    </div>
+</div>
+
+{% endblock %}

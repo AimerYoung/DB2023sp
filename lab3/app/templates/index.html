@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Teachersys{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello, {{ name or "Stranger" }}</h1>
+        <h2>Here's AimerYoung's Teacher Management System.</h2>
+        <h2>Select your query below:</h2>
+    </div>
+
+    {{ wtf.quick_form(form) }}
+    
+    <div class="row mt-3">
+        <div class="col-md-2">
+            <a class="btn btn-primary btn-block" href="{{ url_for('add') }}">ADD</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary btn-block" href="{{ url_for('delete') }}">DELETE</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary btn-block" href="{{ url_for('alt') }}">ALT</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary btn-block" href="{{ url_for('search') }}">SEARCH</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary btn-block" href="{{ url_for('count') }}">COUNT</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

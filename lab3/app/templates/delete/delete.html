@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is Delete page, select an item below:</h2>
+</div>
+<div class="row mt-3">
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/teacher">Teacher</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/project">Project</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/paper">Paper</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/course">Course</a>
+    </div>
+</div>
+<div class="row my-50"> <!-- 添加顶部和底部间距 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+</div>
+<div class="row">
+
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/teach">Teach</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/undertake">Undertake</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" href="/delete/publish">Publish</a>
+    </div>
+</div>
+<div class="row my-50"> <!-- 添加顶部和底部间距 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+    <div class="col-md-3"></div> <!-- 空列，用于产生空白 -->
+</div>
+<div class="row">
+    <div class="col-md-3 offset-md-3"> <!-- 使用offset-md-3将按钮居中 -->
+        <a class="btn btn-primary btn-block" href="/">Back Home</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Teacher Management System - Search Publish{% endblock %}
+
+{% block page_alert %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block page_content %}
+<div class="jumbotron">
+    <h1>Hello, {{ name or "Stranger" }}</h1>
+    <h2>Here's AimerYoung's Teacher Management System.</h2>
+    <h2>This is Search page for Publish, enter your query below:</h2>
+</div>
+
+<div class="container">
+    <h3>Search conditions:</h3>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-3">
+                {{ wtf.form_field(form.teacher_id) }}
+            </div>
+            <div class="col-md-3">
+                {{ wtf.form_field(form.paper_id) }}
+            </div>
+            <div class="col-md-3">
+                {{ wtf.form_field(form.ranking) }}
+            </div>
+            <div class="col-md-3">
+                {{ wtf.form_field(form.is_corresponding_author) }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                {{ wtf.form_field(form.submit) }}
+            </div>
+        </div>
+    </form>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Search Results</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Teacher ID</th>
+                                    <th>Paper ID</th>
+                                    <th>Ranking</th>
+                                    <th>Is Corresponding Author</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for publish in result %}
+                                    <tr>
+                                        <td>{{ publish.teacher_id }}</td>
+                                        <td>{{ publish.paper_id }}</td>
+                                        <td>{{ publish.ranking }}</td>
+                                        <td>{{ publish.iscorrespondingauthor }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/search">Back to Search</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" href="/">Back Home</a>
+    </div>
+</div>
+{% endblock %}
